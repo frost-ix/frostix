@@ -1,2 +1,0 @@
-# frostix
-Introduce page

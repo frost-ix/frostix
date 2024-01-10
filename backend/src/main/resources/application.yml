@@ -1,0 +1,26 @@
+# server option
+server:
+  port : 8200
+  servlet.session.timeout : 360000
+
+spring:
+  devtools:
+    livereload:
+      enabled: true
+
+  datasource:
+    url:
+    username:
+    password:
+    driver-class-name:
+
+  output:
+    ansi:
+      enabled: always
+
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 1GB
+      enabled: true
+

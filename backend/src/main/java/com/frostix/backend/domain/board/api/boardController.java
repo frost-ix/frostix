@@ -1,6 +1,6 @@
 package com.frostix.backend.domain.board.api;
 
-import com.frostix.backend.domain.board.DTO.resultDTO;
+import com.frostix.backend.domain.board.VO.resultVO;
 import com.frostix.backend.domain.board.response.responseEntityHandler;
 import com.frostix.backend.domain.board.service.boardService;
 import lombok.AllArgsConstructor;

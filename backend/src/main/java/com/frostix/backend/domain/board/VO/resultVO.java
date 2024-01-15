@@ -1,10 +1,10 @@
-package com.frostix.backend.domain.board.DTO;
+package com.frostix.backend.domain.board.VO;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;
 
 @Data
-public class resultDTO {
+public class resultVO {
     private String message;
     private Object data;
 

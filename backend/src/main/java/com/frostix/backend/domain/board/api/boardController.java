@@ -1,9 +1,5 @@
 package com.frostix.backend.domain.board.api;
 
-<<<<<<< HEAD
-=======
-import com.frostix.backend.domain.board.VO.resultVO;
->>>>>>> main
 import com.frostix.backend.domain.board.response.responseEntityHandler;
 import com.frostix.backend.domain.board.service.boardService;
 import lombok.extern.log4j.Log4j2;

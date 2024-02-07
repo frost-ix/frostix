@@ -1,10 +1,9 @@
-package com.frostix.backend.domain.board.service;
+package com.frostix.backend.domain.board.dao;
 
 import com.frostix.backend.domain.board.VO.boardVO;
 
 import java.util.Map;
 
-public interface boardService {
-    boardVO getBoard(int id);
+public interface boardDAO {
     Map<Integer, boardVO> getBoardList();
 }

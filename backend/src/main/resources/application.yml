@@ -1,12 +1,16 @@
 # server option
 server:
-  port : 8200
-  servlet.session.timeout : 360000
+  port: 8200
+  servlet.session.timeout: 360000
 
 spring:
   devtools:
     livereload:
       enabled: true
+
+  # data:
+  #   mongodb:
+  #     uri: mongodb://localhost:27017/test
 
   datasource:
     url:
@@ -23,4 +27,3 @@ spring:
       max-file-size: 500MB
       max-request-size: 1GB
       enabled: true
-

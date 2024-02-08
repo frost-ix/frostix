@@ -8,9 +8,9 @@ spring:
     livereload:
       enabled: true
 
-  # data:
-  #   mongodb:
-  #     uri: mongodb://localhost:27017/test
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/test
 
   datasource:
     url:

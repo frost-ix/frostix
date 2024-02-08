@@ -3,23 +3,32 @@ package com.frostix.backend.domain.user.api;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.frostix.backend.domain.user.VO.user;
+import com.frostix.backend.domain.user.service.UserService;
 
-import org.springframework.http.HttpStatus;
+import lombok.extern.log4j.Log4j2;
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
+@Log4j2
 @RestController
-@RequestMapping("/user")
-public class userAPI {
-	@GetMapping("mypage")
-	public ResponseEntity<user> getUser(@ModelAttribute user user) {
-		System.out.println("userInfo : " + user);
-		ResponseEntity<user> userInfo = new ResponseEntity<>(HttpStatus.OK);
+public class UserAPI {
+	private final UserService userService;
+
+	public UserAPI(UserService userService) {
+		this.userService = userService;
+	}
+
+	@GetMapping("/users")
+	public ResponseEntity<List<user>> getUsers() {
+		ResponseEntity<List<user>> userInfo = userService.getUsers();
 		return userInfo;
 	}
 
@@ -29,26 +38,21 @@ public class userAPI {
 	 * @param user
 	 * @return ResponseEntity<user>
 	 */
-	@PostMapping("/create")
+	@PostMapping("/user")
 	public ResponseEntity<user> createUser(@ModelAttribute user user) {
-		user backUser = new user();
-		System.out.println("backUser (default) : " + backUser);
-		System.out.println("ModelAttribute (from Front) : " + user);
-		backUser = user;
-		System.out.println("Changed value : " + backUser);
-		return ResponseEntity.ok()
-				.body(backUser);
+		log.info("Post Create API user : " + user);
+		return userService.createUser(user);
 	}
 
-	@PutMapping("/update")
+	@PutMapping("/user")
 	public ResponseEntity<user> putMethodName(@ModelAttribute user entity) {
 		System.out.println("entity : " + entity);
-		return ResponseEntity.ok()
-				.body(entity);
+		return userService.putUser(entity);
 	}
 
-	@DeleteMapping("/delete")
-	public int deleteUser() {
-		return 0;
+	@DeleteMapping("/user/{userId}")
+	public ResponseEntity<String> deleteUser(@PathVariable String userId) {
+		log.info("Target user : " + userId);
+		return userService.deleteUser(userId);
 	}
 }

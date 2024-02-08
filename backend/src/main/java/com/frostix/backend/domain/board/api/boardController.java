@@ -1,6 +1,6 @@
 package com.frostix.backend.domain.board.api;
 
-import com.frostix.backend.domain.board.response.responseEntityHandler;
+import com.frostix.backend.domain.board.response.boardEntityHandler;
 import com.frostix.backend.domain.board.service.boardService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
@@ -21,9 +21,9 @@ import java.util.NoSuchElementException;
 @Log4j2
 public class boardController {
 	private final boardService boardServ;
-	private final responseEntityHandler handler;
+	private final boardEntityHandler handler;
 
-	public boardController(boardService boardServ, responseEntityHandler handler) {
+	public boardController(boardService boardServ, boardEntityHandler handler) {
 		this.boardServ = boardServ;
 		this.handler = handler;
 	}
